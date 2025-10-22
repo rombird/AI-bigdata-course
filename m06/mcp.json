@@ -1,0 +1,21 @@
+{
+  "servers": {
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "${env:CONTEXT7_API_KEY}"
+      }
+    },
+    "math-server" : {
+      "type": "stdio",
+      "command":"C:\\Users\\Administrator\\miniconda3\\envs\\mcp_env\\python.exe",
+      "args": ["C:\\Users\\Administrator\\mcp_env\\day06_math_server.py"]
+    },
+    "math":{
+      "type" : "stdio",
+      "command" : "C:\\Users\\Administrator\\miniconda3\\envs\\mcp_env\\python.exe",
+      "args" : ["${workspaceFolder}s\\servers\\day06_math_server.py"]  
+    }
+  }
+}
