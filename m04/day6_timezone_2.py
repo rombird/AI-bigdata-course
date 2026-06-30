@@ -1,5 +1,4 @@
-# gpt_function.py파일의 get_current_time함수와 tools.을 임포트
-from gpt_function import get_current_time, tools
+from day6_gpt_function_1 import get_current_time, tools
 from openai import OpenAI
 from dotenv import load_dotenv
 import os

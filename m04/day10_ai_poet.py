@@ -16,7 +16,7 @@ output_parser = StrOutputParser() # 문자열 출력 파서
 
 chain = prompt | llm | output_parser # 체인구성
 
-st.title('인공지능 시인!!') # 제목
+st.title('인공지능 시인') # 제목
 
 # 시 주제 입력
 content = st.text_input('시의 주제를 제시해주세요.')

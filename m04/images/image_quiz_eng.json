@@ -1,0 +1,42 @@
+[
+    {
+        "no": 1,
+        "eng": "Which of the following descriptions of the image is incorrect?\n- (1) Many people are seated in a large hall.\n- (2) The central screen displays the phrase \"DIVE 2024 IN BUSAN.\"\n- (3) Most people are using laptops.\n- (4) Everyone in the image is standing.",
+        "img": "busan_dive.jpg"
+    },
+    {
+        "no": 2,
+        "eng": "Which of the following descriptions of the image is incorrect?\n- (1) The exterior wall of the building has the words \"Local Stitch\" on it.\n- (2) A yellow sculpture is positioned on the left side of the image.\n- (3) There is a brick building visible.\n- (4) There is a red sculpture on the right side of the image.",
+        "img": "local_stitch.jpg"
+    },
+    {
+        "no": 3,
+        "eng": "Which of the following descriptions of the image is incorrect?\n- (1) It shows the inside of a café.\n- (2) An employee is wearing an apron.\n- (3) There is a noticeable yellow wall.\n- (4) All tables are full of customers.",
+        "img": "local_stitch_terrarosa.jpg"
+    },
+    {
+        "no": 4,
+        "eng": "Which of the following descriptions of the image is incorrect?\n- (1) There is a coffee shop on the first floor of the building.\n- (2) The exterior of the building is finished with brick.\n- (3) There is a large tree on the roof of the building.\n- (4) Windows are visible on each floor of the building.",
+        "img": "mangwon.jpg"
+    },
+    {
+        "no": 5,
+        "eng": "Which of the following descriptions of the image is incorrect?\n- (1) Various breads are displayed.\n- (2) The shop's wall is decorated with white tiles.\n- (3) The employee is wearing a green cap.\n- (4) There are price tags for the bread inside the glass display.",
+        "img": "mangwon_bakery.jpg"
+    },
+    {
+        "no": 6,
+        "eng": "Which of the following descriptions of the image is incorrect?\n- (1) People are doing construction work in front of a building.\n- (2) There is a sign that says \"bakery cafe pomme verte.\"\n- (3) The store on the right is empty.\n- (4) There are construction tools on the ground.",
+        "img": "sangam_interior.jpg"
+    },
+    {
+        "no": 7,
+        "eng": "Which of the following descriptions of the image is incorrect?\n- (1) Natural light is coming through large windows.\n- (2) The floor of the room is made of tiles.\n- (3) People are sitting at tables and having conversations.\n- (4) There are lights installed on the ceiling.",
+        "img": "seolleung_terrarosa.jpg"
+    },
+    {
+        "no": 8,
+        "eng": "Which of the following descriptions of the image is incorrect?\n\n- (1) People are lining up in front of a big bus.\n- (2) There is a person making a phone call.\n- (3) A large building is visible in the background.\n- (4) People are taking a walk in a park.",
+        "img": "stanford_coffee.jpg"
+    }
+]

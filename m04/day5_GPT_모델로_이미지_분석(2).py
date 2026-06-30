@@ -1,3 +1,5 @@
+# 이미지 활용해 퀴즈 생성
+
 # 라이브러리 불러오기
 # glob 라이브러리 : 파일경로나 이름 패턴을 기반으로 쉽고 
 # 직관적으로 파일을 검색할 수 있어, 복잡한 디렉토리 탐색이 필요할 때 매우 유용한 라이브러리
@@ -7,19 +9,15 @@ from openai import OpenAI
 from dotenv import load_dotenv
 import os
 import base64
-import json
 
 load_dotenv()
 api_key = os.getenv('OPENAI_API_KEY')
 client = OpenAI(api_key=api_key)
 
-# emcode_image(image_path)함수
-# base64문자열은 OpenAI API 이미지 데이터를 전달할 때 사용
-
 def encode_image(image_path):
     """이미지 파일을 읽어 base64 문자열로 변환하는 함수"""
     with open(image_path, "rb") as image_file:
-        return base64.b64encode(image_file.read()).decode("utf-8") 
+        return base64.b64encode(image_file.read()).decode("utf-8")
 
 def image_quiz(image_path, n_trial=0, max_trial=3):
     """이미지 경로를 받아 퀴즈를 만드는 함수"""
@@ -82,61 +80,15 @@ def image_quiz(image_path, n_trial=0, max_trial=3):
         print(f'failed\n + {str(e)}')
         return image_quiz(image_path, n_trial+1) # 재귀함수 호출
     
-    content = response.choices[0].message.content
-        
-    if 'Listening:' in content:
+    content = response.choices[0].message.content # 응답 결과를 content변수에 저장
+
+    # Listening이라는 글자가 content안에 포함되어 있다면 
+   
+    if 'Listening' in content:
         return content, True
-    else:
+    else:  # Listening이라는 글자가 content안에 없다면 다시 image_quiz함수 불러옴->함수 호출해서 gpt모델이 생성하도록
         return image_quiz(image_path, n_trial+1)
-
-# 여러 문제를 불러오기 위한 코드
-# 마크다운 파일 생성 -> .md
-# TTS(글자 -> 말) 인식을 위해서 json파일 생성 -> .json
-
-
-# 문제들을 계속 붙여 나가기 위해 빈 문자열 선언
-txt = ""    
-eng_dict = [] # 영어 문제만 담기 위해 생성
-no = 1 # 문제 번호를 1로 초기화
-
-# images폴더 내의 모든 jpg 파일을 사용
-for g in glob('./images/*.jpg'): 
-    q, is_suceed = image_quiz(g) # image_quiz내 변수 두개, g : 이미지 객체 1개
-
-    # 문제 생성에 실패하면 다음 문제로 넘어간다.
-    if not is_suceed:
-        continue # 다음 이미지로 넘어간다(다시 위로 올라감)
-    divider = f'## 문제 {no}\n\n'
-    print(divider) 
-    txt += divider
-
-    # 파일명을 추출해 이미지 링크 만들기
-    filename = os.path.basename(g) # 마크다운에 표시할 이미지 파일경로 설정
-    txt += f'![image]({filename})\n\n' # 마크다운에서 링크경로
-
-    # 문제 추가
-    print(q)
-    # txt 문자열 변수에 마크다운 코드가 계속 추가된다.
-    txt += f'{q}\n\n----------------------\n\n'
-
-    # 마크다운 파일로 저장
-    with open('./images/image_quiz_eng.md', 'w', encoding='utf-8') as f:
-        f.write(txt)
-
-    # 영어 문제만 추출
-    # .split() -> 괄호 안 내용 기준 분리 -> 결과가 리스트 형태
-    # .strip() -> 공백 앞뒤로 제거
-    eng = q.split('Listening: ')[1].split('정답: ')[0].strip() # Listening: 을 기준으로 왼쪽 0번, 오른쪽 1번
-
-    eng_dict.append({
-        'no':no,
-        'eng':eng,
-        'img':filename
-    })
-
-    # json파일로 저장
-    with open('./images/image_quiz_eng.json', 'w', encoding='utf-8') as f:
-        json.dump(eng_dict, f, ensure_ascii=False, indent=4)
     
-    no += 1 # 문제 번호 증가
-
+# 이미지 한장을 넣어서 테스트해보자 -> 함수호출
+q = image_quiz('images/busan_dive.jpg')
+print(q)
