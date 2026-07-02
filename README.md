@@ -1,4 +1,9 @@
-# 목차
+# AI-bigdata-course
+개인 학습 기록용 레포입니다
+
+---
+
+## 목차
 - 1개월차(m01) : python 기초, `pandas`, `numpy`
 - 2개월차(m02) : 파일입출력(csv, json), 웹크롤링, `matplotlib`, 머신러닝(빅분기 위주로)
 - 3개월차(m03) : 머신러닝, `streamlit`, kaggle, 딥러닝 이론(가볍게)
